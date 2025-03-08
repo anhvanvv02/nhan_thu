@@ -120,7 +120,7 @@
 <script>
     $(window).on('load', function(event){
     $('body').removeClass('preloading');
-    $('.loadingLove').delay(1000).fadeOut('fast');
+    $('.loadingLove').delay(500).fadeOut('fast');
 
         
     function getHeart(e){
@@ -171,8 +171,8 @@
     }
 
     const inputField = document.getElementById('inputField');
-    const textToType = "Gửi tới chị em tầng 3";
-    const typingSpeed = 100; // milliseconds per character
+    const textToType = "Gửi tới các chị em HG";
+    const typingSpeed = 20; // milliseconds per character
 
     let charIndex = 0;
     function typeText() {
@@ -215,20 +215,20 @@
     // .textLetter text h2
     let indexText = 0;
     let textLetter = document.querySelector('.textLetter h2');
-    const textLetterH2 = "Gửi em!";
+    const textLetterH2 = "Gửi bạn!";
     let timoutTextLetter;
 
     function textCharLetter(){
         if (indexText < textLetterH2.length) {
             textLetter.textContent += textLetterH2[indexText];
             indexText++;
-            setTimeout(indexText, 100);
+            setTimeout(indexText, 20);
         }
         else{
             clearInterval(timoutTextLetter);
             setTimeout(()=>{
                 funcTimeoutLetterContent()
-            },500)
+            },20)
         }
     }
     function funcTimeoutLetter(){
@@ -237,15 +237,44 @@
         clearInterval(timoutTextLetter);
         timoutTextLetter =  setInterval(()=>{
                 textCharLetter();
-            }, 200)
+            }, 20)
     }
 
     // chữ của thư bạn muốn gửi
     let indexTextContent = 0;
     let textLetterContent = document.querySelector('.contentLetter');
-    const textLetterP = "Thay mặt cho anh em, mình xin chúc các chị em tầng 3 ngày càng xinh đẹp, mạnh khỏe, hạnh phúc và thành công 💗 Chúc các chị em có một ngày 8/3 thật sự ý nghĩa và tràn ngập niềm vui bên cạnh những người thân yêu của mình 💗 💗";
+    const list = [
+    "Chúc bạn luôn tỏa sáng rạng ngời như những vì sao trên bầu trời đêm. Hãy luôn mạnh mẽ, tự tin và tràn đầy năng lượng tích cực để chinh phục mọi ước mơ trong cuộc sống. Ngày 8/3 thật hạnh phúc nhé!",
+    "Gửi đến bạn những điều tuyệt vời nhất trong ngày đặc biệt này! Mong rằng mỗi ngày trôi qua sẽ đều ngập tràn tiếng cười, niềm vui và những khoảnh khắc đáng nhớ. Hãy luôn là phiên bản tỏa sáng nhất của chính mình!",
+    "Chúc bạn không chỉ là một ngày 8/3 thật rạng rỡ mà còn là 365 ngày tràn đầy yêu thương, hạnh phúc và thành công. Cảm ơn bạn đã mang đến cho thế giới này những điều đẹp đẽ nhất!",
+    "Mong rằng mỗi sáng thức dậy, bạn sẽ luôn cảm nhận được niềm vui trong từng nhịp thở, nụ cười trong từng ánh mắt và sự ấm áp trong từng vòng tay yêu thương. Chúc bạn một ngày 8/3 tràn ngập hạnh phúc và yêu thương!",
+    "Chúc bạn luôn xinh đẹp như đóa hoa đang khoe sắc, ngọt ngào như bản nhạc dịu êm và mạnh mẽ như ngọn gió thổi bay mọi lo toan. Ngày 8/3 thật rực rỡ và tràn đầy yêu thương nhé!",
+    "Gửi đến bạn muôn vàn lời chúc tốt đẹp nhất! Mong rằng cuộc sống của bạn sẽ luôn ngập tràn niềm vui, may mắn và những khoảnh khắc hạnh phúc bên những người thân yêu. Chúc bạn ngày 8/3 thật ý nghĩa!",
+    "Nhân ngày đặc biệt này, chúc bạn luôn giữ được nụ cười rạng rỡ, trái tim ấm áp và tâm hồn luôn tràn đầy niềm tin vào những điều tốt đẹp. Hãy luôn tỏa sáng theo cách riêng của mình nhé!",
+    "Chúc bạn luôn vững vàng như ngọn núi, dịu dàng như cơn gió và mạnh mẽ như ánh mặt trời. Hãy bước qua mọi thử thách bằng lòng kiên định và niềm tin mãnh liệt. Ngày 8/3 thật hạnh phúc nhé!",
+    "Chúc bạn không chỉ có ngày 8/3 ngập tràn niềm vui mà còn là một hành trình dài phía trước đầy ắp tiếng cười, thành công và những khoảnh khắc hạnh phúc không thể nào quên. Luôn tự tin và rạng rỡ bạn nhé!",
+    "Chúc bạn mỗi ngày đều được sống trong sự yêu thương, bao bọc bởi những điều dịu dàng nhất. Mong rằng mọi ước mơ của bạn sẽ sớm thành hiện thực, và cuộc sống sẽ luôn ngập tràn những điều ngọt ngào như chính nụ cười của bạn! ❤️",
+    "Ngày 8/3, chúc bạn luôn mạnh mẽ như đại dương bao la, kiêu hãnh như ngọn núi vững chãi và dịu dàng như làn gió xuân mát lành. Hãy cứ tỏa sáng rực rỡ theo cách riêng của bạn nhé! ✨",
+    "Chúc bạn sẽ luôn tìm thấy niềm vui trong từng khoảnh khắc nhỏ bé của cuộc sống. Dù là nắng sớm hay mưa chiều, mong rằng bạn sẽ luôn cảm nhận được sự ấm áp trong trái tim mình. Ngày 8/3 thật ngọt ngào nhé! 🌸",
+    "Chúc bạn không chỉ là một ngày 8/3 đầy hoa và quà, mà còn là 365 ngày ngập tràn nụ cười, những phút giây bình yên và những thành công đáng tự hào. Hãy luôn tỏa sáng theo cách riêng của mình nhé! 🌟",
+    "Gửi đến bạn một bó hoa rực rỡ nhất của lòng yêu thương, một chiếc bánh ngọt ngào nhất của hạnh phúc và một món quà quý giá nhất là niềm vui trọn vẹn trong ngày 8/3 này! 💐🎁",
+    "Chúc bạn luôn xinh đẹp như ánh nắng ban mai, rạng rỡ như cầu vồng sau mưa và mạnh mẽ như những cánh buồm vững vàng trước sóng gió. Ngày 8/3 thật trọn vẹn niềm vui nhé! 🌈",
+    "Mong rằng trong hành trình cuộc sống của bạn sẽ luôn có những người sẵn sàng lắng nghe, chia sẻ và đồng hành trên mỗi bước đường bạn đi. Chúc bạn một ngày 8/3 thật hạnh phúc và ý nghĩa! 🤗",
+    "Cuộc sống đôi khi có những ngày khó khăn, nhưng bạn đừng quên rằng mình luôn xứng đáng với những điều tốt đẹp nhất. Chúc bạn ngày 8/3 tràn ngập niềm vui và hạnh phúc! 💫",
+    "Ngày hôm nay là của bạn — ngày để bạn được yêu thương nhiều hơn, trân trọng nhiều hơn và tỏa sáng hơn bất kỳ lúc nào. Chúc bạn ngày 8/3 thật hân hoan và đáng nhớ! ❤️🌷",
+    "Chúc bạn luôn giữ được trái tim ấm áp, nụ cười rạng rỡ và một tâm hồn lạc quan. Hãy luôn tin rằng phía trước là bầu trời đầy ánh nắng và những điều kỳ diệu đang chờ đón bạn! ☀️💫",
+    "Gửi đến bạn điều tuyệt vời nhất trong ngày 8/3 này: Một tâm hồn an nhiên, một trái tim bình yên và một cuộc sống ngập tràn hạnh phúc. Hãy luôn mỉm cười và đón nhận mọi điều tốt đẹp nhé! 😊💖"
+];
+
+const getRandomWish = () => list[Math.floor(Math.random() * list.length)];
+
+console.log(getRandomWish());
+
+
+    
     let timoutTextLetterContent;
-    function textCharLetterContent(){
+    function textCharLetterContent(textLetterP){
+        
         if (indexTextContent < textLetterP.length) {
             textLetterContent.textContent += textLetterP[indexTextContent];
             indexTextContent++;
@@ -257,11 +286,12 @@
         }
     }
     function funcTimeoutLetterContent(){
+        const textLetterP =  list[Math.floor(Math.random() * list.length)];
         indexTextContent = 0; // Reset indexTextContent
         textLetterContent.textContent = ''; // Xóa nội dung hiện tại của textLetter
         clearInterval(timoutTextLetterContent);
         timoutTextLetterContent =  setInterval(()=>{
-            textCharLetterContent();
+            textCharLetterContent(textLetterP);
             }, 100)
     }
     //end 
@@ -287,19 +317,20 @@
             letters.style.transform = `rotate(${rotate}deg)`;
             setTimeout(()=>{
                 letters.style.top = "100%";
-            },1000)
+            },100)
             setTimeout(()=>{
                 letters.remove()
-            },11000)
+            },5000)
             document.querySelectorAll(".letters").forEach((item)=>{
                 item.addEventListener("click", function(){
+                    
                     clearInterval(timeout)
                     $(".wrapperLetterForm").fadeIn()
                     funcTimeoutLetter();
                     
                 })
             })
-        },500)
+        },100)
     })
 
     document.querySelector(".fa-xmark").addEventListener("click", function(){
